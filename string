@@ -1,0 +1,21 @@
+#!/bin/bash
+
+declare -r S="shaocong"
+
+read -p "Enter a string " name
+
+if [[ -z "$name" ]]; then
+	echo "name has no value"
+else
+	echo "name is not empty"
+fi
+
+if [[ "$name" > "$S" ]]; then
+	echo "$name is greater than $S"
+elif [[ "$name" == "$S" ]]; then
+	echo "$name is equal to $S"
+else
+	echo "$name is less than $S"
+fi
+
+

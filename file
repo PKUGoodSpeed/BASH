@@ -1,0 +1,52 @@
+#!/bin/bash
+
+#[ -d samp_dif ] || mkdir samp_dir
+#[ -d tt.py ] || vim tt.py
+#touch tt.py && vim tt.py
+
+read -p "Enter the filename: " F1
+
+if [ -e "$F1" ]; then
+	echo "the file exists"
+fi
+
+if [ -f "$F1" ]; then
+	echo "the file is a normal file"
+fi
+
+if [ -r "$F1" ]; then
+	echo "the file is readable"
+fi
+
+if [ -w "$F1" ]; then
+	echo "the file writable"
+fi
+
+if [ -x "$F1" ]; then
+	echo "the file is executable"
+fi
+
+if [ -d "$F1" ]; then
+	echo "the file is a directory"
+fi
+
+if [ -L "$F1" ]; then
+	echo "the file is a symbolic link"
+fi
+
+if [ -p "$F1" ]; then
+	echo "the file is a named pipe"
+fi
+
+if [ -S "$F1" ]; then
+	echo "the file is a network socket"
+fi
+
+if [ -G "$F1" ]; then
+	echo "the file is owned by the group"
+fi
+
+if [ -O "$F1" ]; then
+	echo "the file is owned by the User"
+fi
+

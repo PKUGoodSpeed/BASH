@@ -1,0 +1,11 @@
+#!/usr/bin/env python
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+X = np.arange(0., 4., 0.01)
+Y = np.exp(X) - X**np.e
+
+plt.plot(X,Y)
+plt.show()
+

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+rand_str="Shaocong loves me!"
+
+echo $rand_str
+
+N=${#rand_str}
+
+echo "String Length: $N"
+
+echo "${rand_str:2}"
+echo "${rand_str:2:7}"
+echo "${rand_str#*c}"

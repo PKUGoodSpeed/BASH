@@ -1,0 +1,46 @@
+#!/bin/bash
+
+shaocong=(111 22 3333 4)
+
+echo "Start from ${shaocong[0]}"
+
+shaocong[4]=7
+echo ${shaocong[4]}
+
+shaocong+=(10 23)
+
+for i in ${shaocong[*]}; do
+	echo $i
+done
+
+for i in ${shaocong[@]}; do
+	echo $i
+done
+
+echo "Array Length: ${#shaocong[*]}"
+
+echo "Array Length: ${#shaocong[@]}"
+
+echo "Index 6 Length: ${#shaocong[6]}"
+
+sorted_shaocong=($(for i in "${shaocong[@]}"; do
+	echo $i;
+done | sort))
+
+for i in ${sorted_shaocong[*]}; do
+	echo $i
+done
+
+unset 'sorted_shaocong[1]'
+
+for i in ${sorted_shaocong[*]}; do
+	echo $i
+done
+
+unset sorted_shaocong
+for i in ${sorted_shaocong[*]}; do
+	echo $i
+done
+
+echo "The Array is:"
+echo "${shaocong[*]}"

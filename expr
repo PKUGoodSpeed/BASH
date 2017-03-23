@@ -1,0 +1,50 @@
+#!/bin/bash
+
+date=02/25/1990
+
+pat="^[0-9]{2}/[0-9]{2}/[0-9]{4}$"
+
+if [[ $date =~ $pat ]]; then
+	echo "The date is valid"
+else
+	echo "The data is not valid"
+fi
+
+
+OIFS="$IFS"
+
+IFS=","
+
+read -p "Enter two numbers: " num1 num2
+
+#remove the extra spaces
+num1=${num1//[[:blank:]]/}
+num2=${num2//[[:blank:]]/}
+
+sum=$((num1+num2))
+
+echo "$num1 + $num2 = $sum"
+
+IFS="$OIFS"
+
+read -sp "Enter the secret code: " secret
+if [[ $secret == "password" ]]; then
+	echo "Enter"
+else
+	echo "Wrong Password"
+fi
+
+#expression expansion
+name="shaocong"
+echo "${name}'s husband is zebo"
+
+samp_string="The dog climbed the tree"
+
+modified_string="${samp_string//dog/cat}"
+
+echo "$modified_string"
+echo $modified_string
+
+echo "${name:=Shaocong}" #setting default value
+
+
