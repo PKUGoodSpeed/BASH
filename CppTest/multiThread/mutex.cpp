@@ -15,15 +15,11 @@ public:
 	}
 	void procStk(int i){
 		while(true){
-			mu.lock();
-			if(stk.empty()){
-				mu.unlock();
-				return;
-			}
+			lock_guard<mutex> guard(mu);
+			if(stk.empty()) return;
 			cout<<"From Thread #"<<i<<":"<<endl;
 			cout<<"Processing Number: "<<stk.top()<<endl;
 			stk.pop();
-			mu.unlock();
 		}
 	}
 };
