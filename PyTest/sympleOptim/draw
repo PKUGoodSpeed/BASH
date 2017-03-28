@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+
+import numpy as np
+import matplotlib.pylab as plt
+
+data = []
+
+fp = open("data.txt", 'r')
+for line in fp:
+	data.append(map(float, line.split(' ')))
+data = np.array(data)
+
+x = np.arange(-20,20.5,1.)
+y = np.arange(-20,20.5,1.)
+X, Y = np.meshgrid(x,y)
+z = data[:,2]
+Z = z.reshape(X.shape)
+
+high = max(z)
+low = min(z)
+dc = (high - low)/60.
+
+levs = np.arange(low-dc/2.,high+dc/2.,dc)
+cmap = plt.cm.get_cmap("coolwarm")
+
+plt.contourf(X,Y,Z, levs, cmap = cmap)
+plt.colorbar()
+plt.show()
